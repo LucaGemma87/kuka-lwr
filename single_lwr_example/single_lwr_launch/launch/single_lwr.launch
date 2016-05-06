@@ -98,11 +98,17 @@
 				<arg name="name" value="lwr"/>
 			</include>
 		</group>
-
+                
+                
 		<!-- spawn only desired controllers in current namespace -->
 		<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller $(arg controllers)"/>
 
-		<node name="controller_stopper" pkg="controller_manager" type="spawner" args="--stopped $(arg stopped_controllers)" />
+		<node name="controller_stopper" pkg="controller_manager" type="spawner" args="--stopped vs_joint_impedance_controller vs_computed_torque_controller computed_torque_controller one_task_inverse_dynamics_JL $(arg stopped_controllers)" />
+		
 	</group>
+	
+	   
+    
+    
 
 </launch>

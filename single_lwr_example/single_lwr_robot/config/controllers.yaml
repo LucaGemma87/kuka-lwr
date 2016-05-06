@@ -40,6 +40,12 @@ lwr:
     tip_name: lwr_7_link
     stiffness_gains: 300
     damping_gains: .7
+  vs_joint_impedance_controller:
+    type: lwr_controllers/VSJointImpedanceController
+    root_name: lwr_base_link
+    tip_name: lwr_7_link
+    stiffness_gains: 300
+    damping_gains: .7  
 
   # Inverse Dynamics Controllers
   inverse_dynamics_controller:
@@ -52,7 +58,11 @@ lwr:
     type: lwr_controllers/ComputedTorqueController
     root_name: lwr_base_link
     tip_name: lwr_7_link
-
+ 
+  vs_computed_torque_controller:
+    type: lwr_controllers/VSComputedTorqueController
+    root_name: lwr_base_link
+    tip_name: lwr_7_link
   # One Task Inverse Kinematics
   one_task_inverse_kinematics:
     type: lwr_controllers/OneTaskInverseKinematics

@@ -33,6 +33,8 @@ Once the planning environment has loaded, commands can be sent to any joint in a
 - Computed Torque Controller:
 `rostopic pub -1  /lwr/ComputedTorqueControl/command std_msgs/Float64MultiArray '{ data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'`
 
+
+
 - One Task Inverse Kinematics Controller: 
 
   - Full pose (note the IDs)
@@ -72,5 +74,9 @@ just run the controller (no command support)
 
 
 
+- Switch vs_joint_impedance_controller for dancig Kuka
+ rostopic pub -1 /lwr/vs_joint_impedance_controller/set_gains std_msgs/Float64MultiArray '{data:[1000.0,1000.0,1000.0,1000.0,1000.0,1000.0, 1000.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0]}'
 
+- VS Computed Torque Controller:
+`rostopic pub -1  /lwr/VSComputedTorqueControl/command std_msgs/Float64MultiArray '{ data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'`
 

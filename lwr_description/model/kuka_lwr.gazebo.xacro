@@ -17,37 +17,75 @@
 		<gazebo reference="${name}_1_link">
 			<gravity>true</gravity>
 			<material>Gazebo/Orange</material>
+
 		</gazebo>
 
 		<gazebo reference="${name}_2_link">
 			<gravity>true</gravity>
 			<material>Gazebo/Orange</material>
+
 		</gazebo>
 
 		<gazebo reference="${name}_3_link">
 			<gravity>true</gravity>
 			<material>Gazebo/Orange</material>
+
 		</gazebo>
 
 		<gazebo reference="${name}_4_link">
 			<gravity>true</gravity>
 			<material>Gazebo/Orange</material>
+
 		</gazebo>
 
 		<gazebo reference="${name}_5_link">
 			<gravity>true</gravity>
 			<material>Gazebo/Orange</material>
+
 		</gazebo>
 
 		<gazebo reference="${name}_6_link">
 			<gravity>true</gravity>
 			<material>Gazebo/Orange</material>
+
 		</gazebo>
 
 		<gazebo reference="${name}_7_link">
 			<gravity>true</gravity>
 			<material>Gazebo/Grey</material>
+
 		</gazebo>
+		
+		<gazebo reference="${name}_palm_dummy_link">
+		
+		</gazebo>
+        
+		
+        <!-- Enable the Joint Feedback -->
+<!--         <gazebo reference="${name}_6_joint">
+        <provideFeedback>true</provideFeedback>
+        </gazebo> -->
+
+      
+        <!-- The ft_sensor plugin -->
+<!--         <gazebo>
+        <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>10.0</updateRate>
+        <topicName>${name}_7_link_ft_sensor_topic</topicName>
+        <jointName>${name}_6_joint</jointName>
+        <noise>
+          <type>gaussian</type> -->
+          <!-- Noise is sampled independently per pixel on each frame.  
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+<!--           <mean>0.000</mean>
+          <stddev>0.000</stddev> change this to simulate noise
+        </noise>
+        </plugin>
+        </gazebo> -->
+
+        
+       
 
 	</xacro:macro>
 

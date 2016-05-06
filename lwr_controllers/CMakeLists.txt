@@ -46,9 +46,15 @@ catkin_package(
 )
 
 add_library(${PROJECT_NAME}
-  src/joint_impedance_controller.cpp	
+  src/joint_impedance_controller.cpp
+
+  src/vs_joint_impedance_controller.cpp
+
   src/inverse_dynamics_controller.cpp
   src/computed_torque_controller.cpp
+
+  src/vs_computed_torque_controller.cpp
+
   src/one_task_inverse_kinematics.cpp
   src/multi_task_priority_inverse_kinematics.cpp
   src/multi_task_priority_inverse_dynamics.cpp

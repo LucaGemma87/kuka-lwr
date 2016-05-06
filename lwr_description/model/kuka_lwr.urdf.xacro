@@ -38,7 +38,7 @@
 				<cylinder_inertia_def radius="0.06" length="0.11" mass="${base_mass}"/>
 			</inertial>
 			<visual>
-				<origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
+				<origin xyz="0 0 0" rpy="0 0 ${M_PI}"/><!-- -->
 				<geometry>
 					<mesh filename="package://lwr_description/meshes/base.STL"/>
 				</geometry>
@@ -75,11 +75,12 @@
 		<link name="${name}_1_link">
 			<inertial>
 				<mass value="${link_mass}"/>
-				<origin rpy="0 0 0" xyz="0 -0.06 0.130"/>
+				<origin rpy="0 0 0" xyz="0 -0.06 0.130"/> <!--"-->
+				
 				<cuboid_inertia_def length="0.12" width="0.06" height="0.260" mass="${link_mass}"/>
 			</inertial>
 			<visual>
-				<origin xyz="0 0 -0.008" rpy="0 0 ${M_PI}"/>
+				<origin xyz="0 0 -0.008" rpy="0 0 ${M_PI}"/> 
 				<geometry>
 					<mesh filename="package://lwr_description/meshes/link_1.STL"/>
 				</geometry>
@@ -345,8 +346,8 @@
 		<link name="${name}_6_link">
 			<inertial>
 				<mass value="0.2"/>
-				<origin rpy="0 0 0" xyz="0 0 0.0625"/>
-				<cuboid_inertia_def length="0.125" width="0.125" height="0.125" mass="0.2"/>
+				<origin rpy="0 0 0" xyz="0 0 0.0"/> <!--0.0625--> 
+				<cuboid_inertia_def length="0.135" width="0.135" height="0.135" mass="0.2"/>
 			</inertial>
 
 			<visual>
@@ -386,8 +387,9 @@
 		<link name="${name}_7_link">
 			<inertial>
 				<mass value="0.2"/>
-				<origin xyz="0 0 0"/>
-				<cuboid_inertia_def length="1" width="1" height="1" mass="0.2"/>
+				<origin xyz="0 0 -0.01" rpy="0 0 ${M_PI}" />
+				<cuboid_inertia_def length="0.02" width="0.07" height="0.07" mass="0.2"/> 
+				<!--<cylinder_inertia_def radius="0.05" length="0.02" mass="0.2"/>-->
 			</inertial>
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
@@ -404,10 +406,27 @@
 			</geometry>
 			</collision>
 		</link>
+		
+<!--	        PALM  dummy-->
+ 		<joint name="${name}_palm_joint_dummy" type="fixed"> 
+
+			
+				<origin xyz="0.00 +0.0 0.22" rpy="0 0 0"/>
+
+			<parent link="${name}_7_link" />
+			<child link="${name}_palm_dummy_link" />
+		</joint>
+
+		<link name="${name}_palm_dummy_link"/>
+		
+
 
 		<xacro:kuka_lwr_gazebo name="${name}"/>
 		<xacro:kuka_lwr_transmission name="${name}"/>
-
+		<ros>
+		<plugin name="joint_state_estimator" filename="libjoint_state_estimator.so">
+		  </plugin>
+		</ros>
 	</xacro:macro>
 
 </robot>

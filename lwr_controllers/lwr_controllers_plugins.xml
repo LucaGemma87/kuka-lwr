@@ -12,6 +12,12 @@
     </description>
   </class>
 
+   <class name="lwr_controllers/VSJointImpedanceController" type="lwr_controllers::VSJointImpedanceController" base_class_type="controller_interface::ControllerBase">
+    <description>
+     Luca Gemma Version: The JointImpedanceController tracks effort commands. It expects a EffortJointInterface type of hardware interface.
+    </description>
+  </class>
+
   <class name="lwr_controllers/InverseDynamicsController" type="lwr_controllers::InverseDynamicsController" base_class_type="controller_interface::ControllerBase">
     <description>
       The InverseDynamicsController compensates for inertial, gravitational, and coriolis effects on a robot.
@@ -21,6 +27,12 @@
   <class name="lwr_controllers/ComputedTorqueController" type="lwr_controllers::ComputedTorqueController" base_class_type="controller_interface::ControllerBase">
     <description>
       Info...
+    </description>
+  </class> 
+
+    <class name="lwr_controllers/VSComputedTorqueController" type="lwr_controllers::VSComputedTorqueController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Luca Gemma: Versione  Variable Structure Computed Torque Controller
     </description>
   </class> 
 
